@@ -1,0 +1,127 @@
+body {
+    font-size: 14px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+/*Homepage*/
+.homepage-wrapper {
+    padding-top: 30px;
+    height: 100vh;
+}
+
+.news-wrapper {
+    padding-top: 30px;
+}
+
+.col-md-4 img {
+    height: 100%;
+}
+/*About Page*/
+.about-wrapper img {
+    width: 400px;
+    height: 400px;
+}
+
+.about-wrapper {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    align-items: center;
+    justify-items: center;
+    grid-gap: 50px;
+    height: 100vh;
+}
+
+.about-text {
+    text-align: justify;
+}
+/*Contact Page*/
+.contact-wrapper {
+    display: grid;
+    justify-items: center;
+    padding-top: 30px;
+    padding-bottom: 100px;
+}
+
+    .contact-wrapper img {
+        width: 1150px;
+    }
+
+.contact-information i {
+    font-size: 20px;
+    color: #343a40;
+}
+
+.contact-information {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 30px);
+    grid-gap: 15px;
+    align-content: center;
+}
+
+.contact-email,
+.contact-phone,
+.contact-address {
+    display: grid;
+    grid-template-columns: 20px 1fr;
+    grid-gap: 10px;
+    align-items: center;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    width: 1150px;
+    padding-top: 35px;
+    padding-bottom: 35px;
+}
+/*Login Page*/
+.login-form, .admin-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.col-sm-10 {
+    justify-content: center;
+}
+
+textarea {
+    height: 200px !important;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+    margin-left: 15px;
+}
+
+.button-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+/*footer*/
+.footer-wrapper {
+    background-color: #343A40;
+    width: 100%;
+    color: white;
+    padding: 20px 0px;
+    display: flex;
+    justify-content: center;
+}
