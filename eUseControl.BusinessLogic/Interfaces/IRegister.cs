@@ -9,6 +9,6 @@ namespace eUseControl.BusinessLogic.Interfaces
 {
     public interface IRegister
     {
-        URegisterResp UserRegisterAction(URegisterData user);
+        URegisterResp UserRegisterAction(UsersDbTable user);
     }
 }

@@ -20,7 +20,7 @@ namespace eUseControl.BusinessLogic.Core
             return new ULoginResp { Status = true };
         }
 
-        internal URegisterResp RegisterState(URegisterData user)
+        internal URegisterResp RegisterState(UsersDbTable user)
         {
             using (var db = new UserContext())
             {

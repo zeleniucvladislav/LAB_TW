@@ -11,6 +11,6 @@ namespace eUseControl.BusinessLogic
 {
     class UserRegisterBL : UserApi, IRegister
     {
-        public URegisterResp UserRegisterAction(URegisterData user) => RegisterState(user);
+        public URegisterResp UserRegisterAction(UsersDbTable user) => RegisterState(user);
     }
 }
