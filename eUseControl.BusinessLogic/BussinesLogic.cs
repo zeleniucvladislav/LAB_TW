@@ -2,7 +2,7 @@
 
 namespace eUseControl.BusinessLogic
 {
-    public class BussinesLogic
+    public class BusinessLogic
     {
         public ISession GetSessionBL()
         {

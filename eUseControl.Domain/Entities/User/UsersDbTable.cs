@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using eUseControl.Domain.Enums;
 
 
 namespace eUseControl.Domain.Entities.User
@@ -25,6 +26,7 @@ namespace eUseControl.Domain.Entities.User
         public string Email { get; set; }
         [DataType(DataType.Date)]
         public DateTime RegisterDate { get; set; }
+        public URole Level { get; set; }
         /*
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

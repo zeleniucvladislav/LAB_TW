@@ -1,23 +1,26 @@
-﻿    <a class="navbar-brand" href="#">
-        <img src="https://images.theconversation.com/files/301743/original/file-20191114-26207-lray93.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=926&fit=clip"
-             width="30"
-             height="30"
-             class="d-inline-block align-top"
-             alt="" />
-        Logo
-    </a>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="@Url.Action("Index","Home")">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="@Url.Action("Index","About")">About</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="@Url.Action("Index","Contact")">Contacts</a>
-            </li>
-        </ul>
+﻿@model eUseControl.Web.Models.UserData
+<a class="navbar-brand" href="#">
+    <img src="https://images.theconversation.com/files/301743/original/file-20191114-26207-lray93.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=926&fit=clip"
+         width="30"
+         height="30"
+         class="d-inline-block align-top"
+         alt="" />
+    Logo
+</a>
+<div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="@Url.Action("Index","Home")">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="@Url.Action("Index","About")">About</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="@Url.Action("Index","Contact")">Contacts</a>
+        </li>
+    </ul>
+    @if (Model == null)
+    {
         <ul class="navbar-nav">
             <li class="nav-item">
                 <a class="nav-link" href="@Url.Action("Index","Register")">Register</a>
@@ -26,4 +29,18 @@
                 <a class="nav-link" href="@Url.Action("Index","Login")">Login</a>
             </li>
         </ul>
-    </div>
+    }
+    else
+    {
+<ul class="navbar-nav">
+    @Html.DisplayFor(u => u.Username)
+    <a class="dropdown-item notify-item" href="javascript:;" onclick="document.forms[0].submit();">
+        @using (Html.BeginForm("Logout", "Login", FormMethod.Post))
+        {
+            <i class="remixicon-logout-box-line"></i>
+            <span>Logout</span>
+        }
+    </a>
+</ul>
+    }
+</div>

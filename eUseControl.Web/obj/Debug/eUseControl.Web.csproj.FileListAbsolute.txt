@@ -307,3 +307,10 @@ C:\Users\zelen\Desktop\LAB_TW_ZV\eUseControl\eUseControl.Web\bin\System.Web.Webp
 C:\Users\zelen\Desktop\LAB_TW_ZV\eUseControl\eUseControl.Web\bin\System.Web.Helpers.xml
 C:\Users\zelen\Desktop\LAB_TW_ZV\eUseControl\eUseControl.Web\bin\System.Web.Mvc.xml
 C:\Users\zelen\Desktop\LAB_TW_ZV\eUseControl\eUseControl.Web\obj\Debug\eUseControl.Web.csproj.CopyComplete
+C:\Users\zelen\Desktop\LAB_TW_ZV\eUseControl\eUseControl.Web\bin\AutoMapper.dll
+C:\Users\zelen\Desktop\LAB_TW_ZV\eUseControl\eUseControl.Web\bin\System.ValueTuple.dll
+C:\Users\zelen\Desktop\LAB_TW_ZV\eUseControl\eUseControl.Web\bin\eUseControl.Helpers.dll
+C:\Users\zelen\Desktop\LAB_TW_ZV\eUseControl\eUseControl.Web\bin\AutoMapper.pdb
+C:\Users\zelen\Desktop\LAB_TW_ZV\eUseControl\eUseControl.Web\bin\AutoMapper.xml
+C:\Users\zelen\Desktop\LAB_TW_ZV\eUseControl\eUseControl.Web\bin\System.ValueTuple.xml
+C:\Users\zelen\Desktop\LAB_TW_ZV\eUseControl\eUseControl.Web\bin\eUseControl.Helpers.pdb

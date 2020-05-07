@@ -16,7 +16,7 @@ namespace eUseControl.Web.Controllers
         private readonly IRegister _session;
         public RegisterController()
         {
-            var bl = new BussinesLogic();
+            var bl = new BusinessLogic.BusinessLogic();
             _session = bl.GetRegisterBL();
         }
         // GET: Regin

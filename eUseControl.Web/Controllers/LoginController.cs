@@ -1,60 +1,73 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using eUseControl.BusinessLogic;
+using AutoMapper;
 using eUseControl.BusinessLogic.Interfaces;
 using eUseControl.Domain.Entities.User;
 using eUseControl.Web.Models;
 
 namespace eUseControl.Web.Controllers
 {
-    public class LoginController : Controller
+    public class LoginController : BaseController
     {
         private readonly ISession _session;
+
         public LoginController()
         {
-            var bl = new BussinesLogic();
+            var bl = new BusinessLogic.BusinessLogic();
             _session = bl.GetSessionBL();
         }
 
-        // GET: Login
+        [AllowAnonymous]
         public ActionResult Index()
         {
             return View();
         }
-
+        [AllowAnonymous]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Index(UserLogin login)
         {
             if (ModelState.IsValid)
             {
-                ULoginData data = new ULoginData
-                {
-                    Username = login.Username,
-                    Password = login.Password,
-                    LoginIp = Request.UserHostAddress,
-                    LoginDateTime = DateTime.Now
-                };
+                var config = new MapperConfiguration(cfg => cfg.CreateMap<UserLogin, ULoginData>());
+                var mapper = new Mapper(config);
+                var data = mapper.DefaultContext.Mapper.Map<ULoginData>(login);
+                
+
+                data.LoginDateTime = DateTime.Now;
+                data.LoginIp = Request.UserHostAddress;
 
                 var userLogin = _session.UserLogin(data);
                 if (userLogin.Status)
                 {
-                    //ADD COOKIE
+                    HttpCookie cookie = _session.GenCookie(login.Username);
+                    ControllerContext.HttpContext.Response.Cookies.Add(cookie);
 
                     return RedirectToAction("Index", "Home");
                 }
-                else
-                {
-                    ModelState.AddModelError("", userLogin.StatusMsg);
-                    return View();
-                }
 
+                ModelState.AddModelError("", userLogin.StatusMsg);
+                return View();
             }
+            return View(login);
+        }
 
-            return View();
+        [HttpPost]
+        public ActionResult Logout()
+        {
+            System.Web.HttpContext.Current.Session.Abandon();
+            if (ControllerContext.HttpContext.Request.Cookies.AllKeys.Contains("X-KEY"))
+            {
+                var cookie = ControllerContext.HttpContext.Request.Cookies["X-KEY"];
+                if (cookie != null)
+                {
+                    cookie.Expires = DateTime.Now.AddDays(-1);
+                    ControllerContext.HttpContext.Response.Cookies.Add(cookie);
+                }
+            }
+            return RedirectToAction("Index", "Home");
         }
     }
 }
