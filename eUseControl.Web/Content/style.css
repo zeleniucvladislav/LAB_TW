@@ -2,6 +2,19 @@ body {
     font-size: 14px;
 }
 
+.navbar-login-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 30px;
+    color: rgba(255,255,255,.5);
+}
+.logout-icon {
+    color: rgba(255,255,255,.5);
+    transition : 0.5s ease-in-out;
+}
+.logout-icon:hover {
+    color : red;
+}
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
@@ -112,8 +125,9 @@ input[type="file"] {
 }
 
 .button-wrapper {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
 }
 
 /*footer*/

@@ -1,4 +1,5 @@
 ﻿@model eUseControl.Web.Models.UserData
+
 <a class="navbar-brand" href="#">
     <img src="https://images.theconversation.com/files/301743/original/file-20191114-26207-lray93.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=926&fit=clip"
          width="30"
@@ -32,15 +33,16 @@
     }
     else
     {
-<ul class="navbar-nav">
+<div class="navbar-login-wrapper">
     @Html.DisplayFor(u => u.Username)
-    <a class="dropdown-item notify-item" href="javascript:;" onclick="document.forms[0].submit();">
+    <a class="logout-wrapper" href="javascript:;" onclick="document.forms[0].submit();">
         @using (Html.BeginForm("Logout", "Login", FormMethod.Post))
         {
-            <i class="remixicon-logout-box-line"></i>
-            <span>Logout</span>
+        <div class="logout-icon">
+            <i class="fas fa-sign-out-alt"></i>
+        </div>
         }
     </a>
-</ul>
+</div>
     }
 </div>

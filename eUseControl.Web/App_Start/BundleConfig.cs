@@ -44,7 +44,7 @@ namespace eUseControl.Web
 
             // jQuery
             bundles.Add(new ScriptBundle("~/bundles/jquery/js").Include(
-                      "~/Scripts/jquery-3.3.1.min.js"));
+                      "~/Scripts/jquery-3.5.0.min.js"));
 
             // jQuery Validation
             bundles.Add(new ScriptBundle("~/bundles/validation/js").Include(

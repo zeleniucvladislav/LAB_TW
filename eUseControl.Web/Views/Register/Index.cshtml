@@ -1,4 +1,4 @@
-﻿@{
+﻿@{ 
     ViewBag.Title = "Register";
 }
 @using System.Web.Optimization
@@ -91,9 +91,9 @@
        })
             <span class="help-block small">Your strong password</span>
         </div>
-        <div>
-            <button class="btn btn-accent" value="submit" type="submit">Register</button>
-            <a class="btn btn-default" href="@Url.Action("Index","Login")">Login</a>
+        <div class="button-wrapper">
+            <button class="btn btn-primary" value="submit" type="submit">Register</button>
+            <a class="btn btn-primary" href="@Url.Action("Index","Login")">Login</a>
         </div>
     }
 </div>
