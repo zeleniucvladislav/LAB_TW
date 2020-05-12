@@ -1,11 +1,12 @@
-﻿using eUseControl.Domain.Enums;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using eUseControl.Domain.Enums;
 
-namespace eUseControl.Web.Models
+namespace eUseControl.Domain.Entities.User
 {
-    public class UserData
+    public class PostsTable
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -21,11 +22,5 @@ namespace eUseControl.Web.Models
         [Required]
         [Display(Name = "Image")]
         public string Image { get; set; }
-        public string Username { get; set; }
-        public List<string> TitleList { get; set; }
-        public List<string> TextList { get; set; }
-        public List<string> ImageList { get; set; }
-
-        public URole Level { get; set; }
     }
 }

@@ -2,38 +2,55 @@
 @{
     ViewBag.Title = "AdminPanel";
 }
+@using System.Web.Optimization
+
+@model eUseControl.Web.Models.UserData
 
 <div class="admin-form">
-    <form>
+    @Html.ValidationSummary(true)
+    @using (Html.BeginForm("Index", "Admin", FormMethod.Post, new { @id = "PostsForm" }))
+    {
+        @Html.AntiForgeryToken()
         <div class="form-group row">
-            <label for="post-title" class="col-sm-4 col-form-label">Post Title</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="post-title">
-            </div>
+            @Html.LabelFor(m => m.Title, new { @class = "col-sm-4 col-form-label" })
+            @Html.TextBoxFor(m => m.Title, new
+       {
+           placeholder = "",
+           title = "Please enter post Title",
+           value = "",
+           name = "title",
+           id = "title",
+           @class = "form-control"
+       })
         </div>
         <div class="form-group row">
-            <label for="textarea" class="col-sm-5 col-form-label">Post Information</label>
-            <div class="col-sm-10">
-                <textarea class="form-control" id="textarea"></textarea>
-            </div>
+            @Html.LabelFor(m => m.Text, new { @class = "col-sm-4 col-form-label" })
+            @Html.TextBoxFor(m => m.Text, new
+       {
+           placeholder = "",
+           title = "Please enter post Text",
+           value = "",
+           name = "text",
+           id = "text",
+           @class = "form-control"
+       })
         </div>
         <div class="form-group row">
-            <div class="button-wrapper">
-                <label for="file-upload" class="custom-file-upload btn btn-primary">
-                    <i class="fa fa-cloud-upload"></i> Custom Upload
-                </label>
-                <input id="file-upload" type="file" />
-            </div>
+            @Html.LabelFor(m => m.Image, new { @class = "col-sm-4 col-form-label" })
+            @Html.TextBoxFor(m => m.Image, new
+       {
+           placeholder = "",
+           title = "Please enter post Image",
+           value = "",
+           name = "image",
+           id = "image",
+           @class = "form-control"
+       })
         </div>
-
-        <div class="form-group row">
-            <div class="col-sm-10">
-                <div class="button-wrapper">
-                    <button type="submit" class="btn btn-primary">Create Post</button>
-                </div>
-            </div>
+        <div class="admin-btn-wrapper">
+            <button class="btn btn-primary" value="submit" type="submit">Submit</button>
         </div>
-    </form>
+    }
 </div>
 <script src="https://kit.fontawesome.com/ce8d884e76.js" crossorigin="anonymous"></script>
 

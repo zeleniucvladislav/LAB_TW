@@ -12,5 +12,9 @@ namespace eUseControl.BusinessLogic
         {
             return new UserRegisterBL();
         }
+        public IPosts GetPosts() 
+        {
+            return new PostsBL();
+        }
     }
 }

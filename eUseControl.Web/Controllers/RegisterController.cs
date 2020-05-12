@@ -43,7 +43,7 @@ namespace eUseControl.Web.Controllers
                 {
                     //ADD COOKIE
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Login");
                 }
                 else
                 {

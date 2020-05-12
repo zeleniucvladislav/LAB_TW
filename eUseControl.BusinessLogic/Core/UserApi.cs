@@ -7,6 +7,7 @@ using System.Web;
 using AutoMapper;
 using eUseControl.BusinessLogic.DBModel;
 using eUseControl.BusinessLogic.DBModel.Seed;
+using eUseControl.Domain.Entities.Posts;
 using eUseControl.Domain.Entities.User;
 using eUseControl.Domain.Enums;
 using eUseControl.Helpers;
@@ -121,32 +122,61 @@ namespace eUseControl.BusinessLogic.Core
 
             return userminimal;
         }
+        internal PostsResp AddPosts(PostsTable post)
+        {
+            using (var db = new PostsContext())
+            {
+                db.Posts.Add(post);
+                db.SaveChanges();
+                return new PostsResp() { Status = true, StatusMsg = "" };
+            }
+        }
+        internal List<string> PostsListLogic()
+        {
+            List<PostsTable> posts;
+            List<string> local = new List<string>();
+            using (var db = new PostsContext())
+            {
+                posts = db.Posts.ToList();
+            }
+
+            foreach (var p in posts)
+            {
+                local.Add(p.Title);
+            }
+            return local;
+        }
+
+        internal List<string> PostsListLogic1()
+        {
+            List<PostsTable> posts;
+            List<string> local = new List<string>();
+            using (var db = new PostsContext())
+            {
+                posts = db.Posts.ToList();
+            }
+
+            foreach (var p in posts)
+            {
+                local.Add(p.Text);
+            }
+            return local;
+        }
+
+        internal List<string> PostsListLogic2()
+        {
+            List<PostsTable> posts;
+            List<string> local = new List<string>();
+            using (var db = new PostsContext())
+            {
+                posts = db.Posts.ToList();
+            }
+
+            foreach (var p in posts)
+            {
+                local.Add(p.Image);
+            }
+            return local;
+        }
     }
 }
-/*
-public class UserApi
-    {
-        internal ULoginResp UserLoginAction(ULoginData data)
-        {
-            UDbTable user;
-
-            using (var db = new UserContext())
-            {
-                user = db.Users.FirstOrDefault(u => u.Username == data.Username);
-            }
-
-            using (var db = new UserContext())
-            {
-                user = (from u in db.Users where u.Username == data.Username select u).FirstOrDefault();
-            }
-
-
-            if (user != null)
-            {
-
-            }
-
-            return new ULoginResp();
-        }
-    } 
-*/

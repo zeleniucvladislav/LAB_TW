@@ -1,0 +1,65 @@
+﻿@using System.Web.Optimization
+@using System.Web.UI.WebControls
+
+@{
+    ViewBag.Title = "Error 404";
+    Layout = "~/Views/Shared/_Layout_Blank.cshtml";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Error 404 - Ups something went wrong!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="~/images/favicon.ico">
+
+    <!-- App css -->
+    @Styles.Render("~/bundles/bootstrap/css", "~/bundles/icons-min/css", "~/bundles/app-min/css")
+</head>
+
+<body>
+
+    <div class="account-pages mt-5 mb-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-6 col-xl-5">
+                    <div class="card">
+
+                        <div class="card-body p-4">
+
+                            <div class="error-ghost text-center">
+                                <img src="~/Content/error.png" alt="error image" width="200" />
+                            </div>
+
+                            <div class="text-center">
+                                <h3 class="mt-4 text-uppercase font-weight-bold">Page not found </h3>
+                                <p class="text-muted mb-0 mt-3" style="line-height: 20px;">
+                                    It's looking like you may have taken a wrong turn. Don't worry...
+                                    it happens to the best of us. You might want to check your internet connection.
+                                    Here's a little tip that might help you get back on track.
+                                </p>
+
+                                <a class="btn btn-primary mt-3" href="@Url.Action("Index","Home")"><i class="mdi mdi-reply mr-1"></i> Return Home</a>
+                            </div>
+
+                        </div> <!-- end card-body -->
+                    </div>
+                    <!-- end card -->
+
+                </div> <!-- end col -->
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end container -->
+    </div>
+    <!-- end page -->
+    <!-- Vendor js -->
+    @Scripts.Render("~/bundles/vendor/js")
+    @Scripts.Render("~/bundles/app-min/js")
+    <!-- App js -->
+</body>
+</html>

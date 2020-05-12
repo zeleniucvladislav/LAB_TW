@@ -139,3 +139,13 @@ input[type="file"] {
     display: flex;
     justify-content: center;
 }
+
+.admin-btn-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.admin-btn-wrapper button {
+    width : 150px;
+}

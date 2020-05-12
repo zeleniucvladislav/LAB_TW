@@ -4,6 +4,7 @@
 }
 
 @using System.Web.Optimization
+@model eUseControl.Web.Models.UserData
 
 @{
     ViewBag.Title = "Homepage";
@@ -16,22 +17,24 @@
 <body>
     <div class="homepage-wrapper">
         <h2>Latest news</h2>
-        <div class="news-wrapper">
-            <div class="card mb-3" style="max-width: 540px;">
-                <div class="row no-gutters">
-                    <div class="col-md-4">
-                        <img src="https://images.theconversation.com/files/301743/original/file-20191114-26207-lray93.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=926&fit=clip" class="card-img" alt="...">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        @for (int i = 0; i < Model.TextList.Count; i++)
+        {
+            <div class="news-wrapper">
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src="@Model.ImageList[i]" class="card-img" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">@Model.TitleList[i]</h5>
+                                <p class="card-text">@Model.TextList[i]</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        }
     </div>
 </body>
 </html>
